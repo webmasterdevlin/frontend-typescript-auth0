@@ -1,0 +1,24 @@
+.todo-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-box-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.todo-box-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.mouse-point {
+  cursor: pointer;
+}
+
+.list-content {
+  display: flex;
+  justify-content: space-between;
+}

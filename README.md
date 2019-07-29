@@ -8,6 +8,13 @@ Install the dependencies and devDependencies and start the server.
 $ npm i -D tslint-config-prettier prettier
 $ npm i bootstrap @fortawesome/fontawesome-free
 $ npm i @auth0/auth0-spa-js
+
+angular.json
+"node_modules/bootstrap/dist/css/bootstrap.css"
+"node_modules/@fortawesome/fontawesome-free/css/all.css"
+
+tslint.json
+"no-submodule-imports": false,
 ```
 
 ## Development server

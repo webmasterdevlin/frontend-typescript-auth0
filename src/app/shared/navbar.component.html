@@ -1,0 +1,15 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="">Todo App</a>
+  <div class="nav-justified">
+    <button class="btn btn-light" (click)="login()" *ngIf="!isAuthenticated">
+      Log in
+    </button>
+    <button
+      class="btn btn-outline-light"
+      (click)="logout()"
+      *ngIf="isAuthenticated"
+    >
+      Log out
+    </button>
+  </div>
+</nav>

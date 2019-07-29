@@ -1,0 +1,51 @@
+<div class="todo-container m-5">
+  <div class="jumbotron jumbotron-fluid todo-box-center">
+    <div class="container todo-box-column">
+      <h1 class="display-4">Todo App</h1>
+      <p class="lead">
+        <span><app-profile></app-profile></span>
+      </p>
+    </div>
+  </div>
+  <div class="input-group mb-3" [formGroup]="todoForm">
+    <input
+      formControlName="title"
+      id="title"
+      type="text"
+      class="form-control"
+      placeholder="what's the task?"
+      aria-label="what's the task"
+      aria-describedby="basic-addon2"
+      (keydown.enter)="add()"
+    />
+    <div class="input-group-append mouse-point" (click)="add()">
+      <span class="input-group-text" style="color: darkgreen"
+        ><i class="fas fa-plus"></i
+      ></span>
+    </div>
+  </div>
+  <div *ngIf="todos; else notodos">
+    <ul class="list-group" *ngFor="let todo of todos">
+      <li class="list-group-item list-content">
+        <div class="form-check" (click)="update(todo)">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="todoCheck"
+            [checked]="todo?.isDone"
+          />
+          <label class="form-check-label">
+            {{ todo.title }}
+          </label>
+        </div>
+        <span class="mouse-point" style="color: crimson" (click)="remove(todo)"
+          ><i class="far fa-trash-alt"></i
+        ></span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<ng-template #notodos>
+  <h3>No pending to do's</h3>
+</ng-template>
