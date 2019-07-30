@@ -15,9 +15,9 @@ export class AuthService {
   // Auth0 application configuration
   config = {
     domain: 'devlin.auth0.com',
-    client_id: 'ZiWHRPel3iA5Ma8G2E45NU02Vw015IN5',
+    client_id: 'Rw0S25UYFRgZdGgk1YwFxgeqJUTyzveF',
     redirect_uri: `${window.location.origin}/callback`,
-    audience: 'http://localhost:5000/api',
+    audience: 'http://localhost:3000',
   };
 
   /**
