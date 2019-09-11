@@ -15,8 +15,8 @@ export class TodoService {
     return this.http.get<Todo[]>(`${this.baseUrl}`);
   }
 
-  getTodo(id: string): Observable<Todo> {
-    return this.http.get<Todo>(`${this.baseUrl}/${id}`);
+  getTodo(_id: string): Observable<Todo> {
+    return this.http.get<Todo>(`${this.baseUrl}/${_id}`);
   }
 
   postTodo(todo: Todo): Observable<Todo> {
@@ -24,10 +24,10 @@ export class TodoService {
   }
 
   putTodo(todo: Todo): Observable<Todo> {
-    return this.http.put<Todo>(`${this.baseUrl}/${todo.id}`, todo);
+    return this.http.put<Todo>(`${this.baseUrl}/${todo._id}`, todo);
   }
 
-  deleteTodo(id: string): Observable<Todo> {
-    return this.http.delete<Todo>(`${this.baseUrl}/${id}`);
+  deleteTodo(_id: string): Observable<Todo> {
+    return this.http.delete<Todo>(`${this.baseUrl}/${_id}`);
   }
 }

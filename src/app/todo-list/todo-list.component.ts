@@ -24,6 +24,7 @@ export class TodoListComponent implements OnInit {
 
   selectAllTodos() {
     this.todoService.getTodos().subscribe(data => (this.todos = data));
+    console.log('selectAllTodos');
   }
 
   add() {
@@ -38,17 +39,17 @@ export class TodoListComponent implements OnInit {
   }
 
   update(updatedTodo: Todo) {
-    const index = this.todos.findIndex(t => t.id === updatedTodo.id);
+    const index = this.todos.findIndex(t => t._id === updatedTodo._id);
     updatedTodo.isDone = !updatedTodo.isDone;
 
     this.todoService
       .putTodo(updatedTodo)
       .subscribe(() => (this.todos[index].isDone = updatedTodo.isDone));
   }
-  remove(todo: Todo) {
-    const index = this.todos.findIndex(t => t.id === todo.id);
 
-    this.todoService.deleteTodo(todo.id).subscribe(data => {
+  remove(todo: Todo) {
+    const index = this.todos.findIndex(t => t._id === todo._id);
+    this.todoService.deleteTodo(todo._id).subscribe(data => {
       this.todos.splice(index, 1);
     });
   }

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import createAuth0Client from '@auth0/auth0-spa-js';
 import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, from, Observable, throwError } from 'rxjs';
+import { catchError, concatMap, shareReplay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +20,13 @@ export class AuthService {
     redirect_uri: `${window.location.origin}/callback`,
     audience: 'http://localhost:3000',
   };
+  // Create an observable of Auth0 instance of client
+  auth0Client$ = (from(createAuth0Client(this.config)) as Observable<
+    Auth0Client
+  >).pipe(
+    shareReplay(1), // Every subscription receives the same shared value
+    catchError(err => throwError(err)),
+  );
 
   /**
    * Gets the Auth0Client instance.
@@ -43,5 +51,13 @@ export class AuthService {
     }
 
     return this.auth0Client;
+  }
+
+  getTokenSilently$(options?): Observable<string> {
+    return this.auth0Client$.pipe(
+      concatMap((client: Auth0Client) =>
+        from(client.getTokenSilently(options)),
+      ),
+    );
   }
 }

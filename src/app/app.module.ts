@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CallbackComponent } from './callback/callback.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpInterceptorModule } from './auth/http-request.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpInterceptorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
