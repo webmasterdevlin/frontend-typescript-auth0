@@ -1,4 +1,29 @@
-# FrontendTypescriptAuth0
+## Angular Client App of the Full-Stack TypeScript demo with Authentication and Authorization
+
+## How to run
+
+```bash
+# clone
+$ git clone https://github.com/webmasterdevlin/frontend-typescript-auth0.git
+
+$ cd frontend-typescript-auth0
+
+# open using vs code
+$ code .
+
+# watch mode
+$ ng s -o
+```
+
+## Authentication
+
+[Auth0]('https://auth0.com/')
+
+## Deployment
+
+[Netlify]('https://www.netlify.com/')
+
+---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
 

@@ -2,9 +2,12 @@
   <div class="jumbotron jumbotron-fluid todo-box-center">
     <div class="container todo-box-column">
       <h1 class="display-4">Todo App</h1>
-      <p class="lead">
+      <!-- Works by default when using Google SSO.
+        Does not work with email password only since
+          you don't required to fill out a profile when signing up -->
+      <!-- <p class="lead">
         <span><app-profile></app-profile></span>
-      </p>
+      </p> -->
     </div>
   </div>
   <div class="input-group mb-3" [formGroup]="todoForm">
