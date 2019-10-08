@@ -1,5 +1,14 @@
 <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="">Todo App</a>
+  <div>
+    <a class="navbar-brand" style="color: goldenrod" href="">Todo App</a>
+    <a
+      class="navbar-brand"
+      [routerLink]="['/todo-list']"
+      *ngIf="isAuthenticated"
+    >
+      Tasks
+    </a>
+  </div>
   <div class="nav-justified">
     <button class="btn btn-light" (click)="login()" *ngIf="!isAuthenticated">
       Log in
